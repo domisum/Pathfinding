@@ -175,7 +175,7 @@ public class AStar
 			if(estimatedExpenseLeft == -1)
 				estimatedExpenseLeft = distanceTo(location, endLocation);
 			
-			return  0.9 * estimatedExpenseLeft;
+			return expense + 1.1 * estimatedExpenseLeft;
 		}
 		
 		// ---
@@ -302,13 +302,13 @@ public class AStar
 		double deltaZ = Math.abs(loc1.getZ() - loc2.getZ());
 		
 		// euclidean distance
-		/*double distance2d = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
+		double distance2d = Math.sqrt(deltaX * deltaX + deltaZ * deltaZ);
 		double distance3d = Math.sqrt(distance2d * distance2d + deltaY * deltaY);
 		
-		return distance3d;*/
+		return distance3d;
 		
 		// manhattan distance
-		return deltaX + deltaY + deltaZ;
+		//return deltaX + deltaY + deltaZ;
 	}
 	
 	public double round(double d)

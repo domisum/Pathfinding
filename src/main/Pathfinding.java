@@ -36,7 +36,7 @@ public class Pathfinding extends JavaPlugin implements Listener
 		Location start = new Location(Bukkit.getWorlds().get(0), 0, 4, 0);
 		Location end = new Location(Bukkit.getWorlds().get(0), 20, 4, 0);
 		
-		AStar a = new AStar(start, end, 1000, true, 5);
+		AStar a = new AStar(start, end, 10000, true, 5);
 		path = a.getPath();
 		
 		mat = new Material[path.length];

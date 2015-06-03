@@ -46,3 +46,4 @@ Temporary Items
 .settings/org.eclipse.jdt.core.prefs
 build.xml
 .project
+/bin

@@ -7,7 +7,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
 
-public class AStar
+public class JPS
 {
 	
 	private Location startLocation;
@@ -28,7 +28,7 @@ public class AStar
 	// CONSTRUCTORS
 	// ---
 	
-	public AStar(Location start, Location end, int maxNodeTests, boolean canClimbLadders, double maxFallDistance)
+	public JPS(Location start, Location end, int maxNodeTests, boolean canClimbLadders, double maxFallDistance)
 	{
 		this.startLocation = start;
 		this.endLocation = end;
@@ -41,7 +41,7 @@ public class AStar
 		this.maxFallDistance = maxFallDistance;
 	}
 	
-	public AStar(Location start, Location end)
+	public JPS(Location start, Location end)
 	{
 		this(start, end, 1000, false, 1);
 	}
@@ -127,7 +127,7 @@ public class AStar
 		Node test = new Node(loc, 0, null);
 		
 		for(Node n : checkedNodes)
-			if(n.id == test.id)
+			if(n.x == test.x && n.y == test.y && n.z == test.z)
 				return n;
 		
 		return test;
@@ -140,7 +140,9 @@ public class AStar
 	public class Node
 	{
 		private Location location;
-		public double id;
+		public int x;
+		public int y;
+		public int z;
 		
 		public Node origin;
 		
@@ -154,7 +156,9 @@ public class AStar
 		public Node(Location loc, double expense, Node origin)
 		{
 			location = loc;
-			id = loc.getBlockX() + 30000000d * loc.getBlockY() + 30000000d * 30000000d * loc.getBlockZ();
+			x = loc.getBlockX();
+			y = loc.getBlockY();
+			z = loc.getBlockZ();
 			
 			this.origin = origin;
 			
@@ -175,7 +179,7 @@ public class AStar
 			if(estimatedExpenseLeft == -1)
 				estimatedExpenseLeft = distanceTo(location, endLocation);
 			
-			return expense + 1.5 * estimatedExpenseLeft;
+			return expense + 1.1 * estimatedExpenseLeft;
 		}
 		
 		// ---

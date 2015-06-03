@@ -33,6 +33,8 @@ public class Pathfinding extends JavaPlugin implements Listener
  	@SuppressWarnings("deprecation")
 	public void test()
 	{
+ 		
+ 		
 		Location start = new Location(Bukkit.getWorlds().get(0), 0, 4, 0);
 		Location end = new Location(Bukkit.getWorlds().get(0), 20, 4, 0);
 		

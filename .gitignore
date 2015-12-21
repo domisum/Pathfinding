@@ -7,3 +7,4 @@ bin/
 *.launch
 *.jardesc
 build.xml
+/target/
